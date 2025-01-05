@@ -1,0 +1,31 @@
+<div class="bootstrap-wrapper">
+    <div class="container mt">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <h1 class="text-center">Login Here</h1>
+                <form [formGroup]="login" (ngSubmit)="Login()">
+                    <!-- username input -->
+                    <div class="form-outline mb-4">
+                      <label class="form-label" for="form2Example1">Username</label>
+                      <input type="text" formControlName="username" class="form-control" required />
+                    </div>
+                    <!-- Password input -->
+                    <div class="form-outline mb-4">
+                        <label class="form-label" for="form2Example2">Password</label>
+                      <input type="password" formControlName="password" class="form-control" required/> 
+                    </div>
+                    <!-- Submit button -->
+                    <button type="submit" [disabled]="login.invalid" mat-raised-button color="primary">Sign in</button>
+                    <!-- Register buttons -->
+                </form>
+            </div>
+        </div>
+        <div *ngIf="show" class="text-center">
+          <div class="alert alert-dismissible fade show alert-success" role="alert">
+            <button class="btn-close" type="button" data-bs-dismiss="alert" aria-label="Close"></button>
+            <strong>No user Found!! </strong>
+        </div>
+          <!--<b style="color: #0a4275;">This user is not register!! Please register then login</b>-->
+        </div>  
+
+    </div>

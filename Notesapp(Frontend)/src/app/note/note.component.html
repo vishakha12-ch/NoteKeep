@@ -1,0 +1,28 @@
+<div *ngIf="show" class="text-center mt">
+    <b style="color: #0a4275;">No Notes Available for this user</b>
+    <br>
+</div> 
+<a   routerLink="/addnote" mat-raised-button color="primary" class="mt-1">Add note</a> 
+<div class="bootstrap-wrapper">
+    <div class="container mt-3">
+        <div class="container1 ">
+            <table *ngIf="!show"  class="table">
+               <thead>
+                <tr>
+                  <th scope="col">Id</th>
+                  <th scope="col">Content</th>
+                  <th scope="col">Action</th>
+                </tr>
+               </thead>
+               <tbody>
+                <tr *ngFor="let item of notelist;let i =index">
+                    
+                    <td>{{i+1}}</td>
+                    <td >{{item.content}}</td>
+                    <td><i (click)="delete(item.id)" class="fa fa-trash me-3" style="font-size:20px;color:red;"></i></td>
+                </tr>
+               </tbody>
+            </table>
+        
+</div>
+

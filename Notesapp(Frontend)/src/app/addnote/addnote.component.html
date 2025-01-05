@@ -1,0 +1,28 @@
+<div class="bootstrap-wrapper">
+    <div class="container mt">
+        <div class="row">
+            <div class="col-md-5 offset-md-3">
+                <h1 class="text-center mt-5">AddNote</h1>
+                <form [formGroup]="addnote" (ngSubmit)="Add()">
+                    <!-- registration details -->
+                    <div class="form-outline mb-4">
+                      <label class="form-label" for="form2Example1">Content</label>
+                      <input type="text"  id="content"  formControlName="content" class="form-control" placeholder="Note Description" required />
+                      <div *ngIf="addnote.hasError('maxLength')">
+                        <div class="alert alert-dismissible fade show alert-success" role="alert">
+                            <button class="btn-close" type="button" data-bs-dismiss="alert" aria-label="Close"></button>
+                            <strong>Max Length is 500 </strong>
+                        </div>
+                      </div>
+                      <div *ngIf="addnote.hasError('pattern')">
+                        number not allwoed
+                      </div>
+                    <!-- Submit button -->
+                      <button type="submit" [disabled]="addnote.invalid"  mat-raised-button color="primary" class=" mb-4 mt-4">Add note</button> 
+                    </div>     
+                 </form>
+            </div>
+        </div>
+        <button  routerLink="/note"  mat-raised-button color="primary" class=" mb-4  mt-2">Back</button>
+    </div>
+</div>
